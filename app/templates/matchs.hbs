@@ -1,0 +1,12 @@
+<h2>This is the Matches Route </h2>
+{{outlet}}
+
+{{#each model as |match|}}
+	<h5>{{match.Game.GameId}}</h5>
+	<h5>{{match.Game.HomeTeamKey}}</h5>
+	<h5>{{match.Game.HomeTeamScore}}</h5>
+	<h5>{{match.Game.AwayTeamKey}}</h5>
+	<h5>{{match.Game.AwayTeamScore}}</h5>
+	<h5>{{match.Game.DateTime}}</h5>
+	<h5>{{match.Game.Clock}}</h5>
+{{/each}}
