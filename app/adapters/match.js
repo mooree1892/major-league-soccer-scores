@@ -7,6 +7,8 @@ export default DS.RESTAdapter.extend({
 		'Ocp-Apim-Subscription-Key': '7004bf5fa61a48c1897e4212845ad3c3'
 	},
 	pathForType() {
+		var date = new Date().toISOString().slice(0,10);
+		// return 'BoxScoresByCompetition/mls/' + date;
 		return 'BoxScoresByCompetition/mls/2017-06-17';
 	}
 });
