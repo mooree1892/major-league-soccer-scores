@@ -1,7 +1,8 @@
 <h2>This is the Matches Route </h2>
 {{outlet}}
 
-{{#each model as |match|}}
+{{#bs-accordion as |acc|}}
+	{{#each model as |match|}}
 	<h5>{{match.Game.GameId}}</h5>
 	<h5>{{match.Game.HomeTeamKey}}</h5>
 	<h5>{{match.Game.HomeTeamScore}}</h5>
@@ -9,4 +10,20 @@
 	<h5>{{match.Game.AwayTeamScore}}</h5>
 	<h5>{{match.Game.DateTime}}</h5>
 	<h5>{{match.Game.Clock}}</h5>
-{{/each}}
+	
+<!--   {{#acc.item value="1" title="{{match.Game.GameId}}"}}
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur ea eos hic neque quia sequi sunt. Amet at atque corporis earum et fugiat illum magnam nisi sapiente voluptatem. Laudantium, quam?</p>
+  {{/acc.item}}
+  {{#acc.item value="2" as |aitem|}}
+    {{#aitem.title}}
+      <strong>Second</strong> <i>item</i>
+    {{/aitem.title}}
+    {{#aitem.body}}
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur ea eos hic neque quia sequi sunt. Amet at atque corporis earum et fugiat illum magnam nisi sapiente voluptatem. Laudantium, quam?</p>
+    {{/aitem.body}}
+  {{/acc.item}}
+  {{#acc.item value="3" title="Third item"}}
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur ea eos hic neque quia sequi sunt. Amet at atque corporis earum et fugiat illum magnam nisi sapiente voluptatem. Laudantium, quam?</p>
+  {{/acc.item}} -->
+  	{{/each}}
+{{/bs-accordion}}

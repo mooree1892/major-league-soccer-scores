@@ -9,6 +9,6 @@ export default DS.RESTAdapter.extend({
 	pathForType() {
 		var date = new Date().toISOString().slice(0,10);
 		// return 'BoxScoresByCompetition/mls/' + date;
-		return 'BoxScoresByCompetition/mls/2017-06-17';
+		return 'BoxScoresByCompetition/mls/2017-06-18';
 	}
 });

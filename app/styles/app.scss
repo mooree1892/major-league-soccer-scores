@@ -1,0 +1,12 @@
+
+@import "ember-bootstrap/bootstrap";
+
+body {
+
+  $main-colour: blue;
+
+  h5 {
+    color: $main-colour;
+  }
+
+}
