@@ -3,32 +3,33 @@
 
 body {
 
-  $main-colour: blue;
+	h5 {
+    color: blue;
+  	}
 
-  h5 {
-    color: $main-colour;
-  }
+  	span {
+  		padding-left: 10px;
+  	}
+  	h6 {
+  	color: green;
+  	}
 
-#games {
-  float: left;
-  padding: 10px;
-  position: relative;
-}
+	#games {
+	  float: left;
+	  padding: 10px;
+	  position: relative;
+	}
 
-#games a span { 
-  position:absolute; 
-  width:100%;
-  height:100%;
-  top:0;
-  left: 0;
-}
+	#games:hover {
+		background-color: gray;  
+	}
 
-#games:hover {
-	background-color: gray;  
-}
+/*	#teamnames {
+		float: left;
+	}
 
-#games:active {
-	background-color: #A9A;
-  top: +2px;
-}
+	#scores {
+		float: right;
+	}*/
+
 }

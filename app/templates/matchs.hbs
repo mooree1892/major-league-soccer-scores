@@ -1,19 +1,22 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<h2>This is the Matches Route </h2>
 {{outlet}}
 
 
 {{#each model as |match|}}
 	<div id="games" class="panel panel-default">
-		<h5>{{match.Game.GameId}}</h5>
-		<h5>{{match.Game.HomeTeamKey}}</h5>
-		<h5>{{match.Game.HomeTeamScore}}</h5>
-		<h5>{{match.Game.AwayTeamKey}}</h5>
-		<h5>{{match.Game.AwayTeamScore}}</h5>
-		<h5>{{match.Game.DateTime}}</h5>
-		<h5>{{match.Game.Clock}}</h5>
+		<h6 style="text-align: right">{{match.Game.Clock}}</h6>
+		<h6 style="text-align: right">{{match.Game.DateTime}}</h6>
+	 	<h5 style="text-align: left">{{match.Game.HomeTeamName}}	
+	 		<span style="float: right">
+	 			{{match.Game.HomeTeamScore}}
+	 		</span>
+	 	</h5>
+	 	<h5 style="text-align: left">{{match.Game.AwayTeamName}}	
+	 		<span style="float: right">
+	 			{{match.Game.AwayTeamScore}}
+	 		</span>
+	 	</h5>
 
 		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{match.Game.GameId}}">Match Details</button>
 			<div id="{{match.Game.GameId}}" class="collapse">
