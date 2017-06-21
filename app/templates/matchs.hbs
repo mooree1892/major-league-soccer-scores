@@ -1,29 +1,33 @@
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <h2>This is the Matches Route </h2>
 {{outlet}}
 
-{{#bs-accordion as |acc|}}
-	{{#each model as |match|}}
-	<h5>{{match.Game.GameId}}</h5>
-	<h5>{{match.Game.HomeTeamKey}}</h5>
-	<h5>{{match.Game.HomeTeamScore}}</h5>
-	<h5>{{match.Game.AwayTeamKey}}</h5>
-	<h5>{{match.Game.AwayTeamScore}}</h5>
-	<h5>{{match.Game.DateTime}}</h5>
-	<h5>{{match.Game.Clock}}</h5>
-	
-<!--   {{#acc.item value="1" title="{{match.Game.GameId}}"}}
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur ea eos hic neque quia sequi sunt. Amet at atque corporis earum et fugiat illum magnam nisi sapiente voluptatem. Laudantium, quam?</p>
-  {{/acc.item}}
-  {{#acc.item value="2" as |aitem|}}
-    {{#aitem.title}}
-      <strong>Second</strong> <i>item</i>
-    {{/aitem.title}}
-    {{#aitem.body}}
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur ea eos hic neque quia sequi sunt. Amet at atque corporis earum et fugiat illum magnam nisi sapiente voluptatem. Laudantium, quam?</p>
-    {{/aitem.body}}
-  {{/acc.item}}
-  {{#acc.item value="3" title="Third item"}}
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur ea eos hic neque quia sequi sunt. Amet at atque corporis earum et fugiat illum magnam nisi sapiente voluptatem. Laudantium, quam?</p>
-  {{/acc.item}} -->
-  	{{/each}}
-{{/bs-accordion}}
+
+{{#each model as |match|}}
+	<div id="games" class="panel panel-default">
+		<h5>{{match.Game.GameId}}</h5>
+		<h5>{{match.Game.HomeTeamKey}}</h5>
+		<h5>{{match.Game.HomeTeamScore}}</h5>
+		<h5>{{match.Game.AwayTeamKey}}</h5>
+		<h5>{{match.Game.AwayTeamScore}}</h5>
+		<h5>{{match.Game.DateTime}}</h5>
+		<h5>{{match.Game.Clock}}</h5>
+		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#details">Match Details</button>
+			<div id="details" class="collapse">
+				Goals
+				{{#each match.Goals as |goal|}}
+					<h5>{{goal.GameMinute}}</h5>
+					<h5>{{goal.Name}}</h5>
+				{{/each}}
+				
+				Disciplinary
+				{{#each match.Bookings as |booking|}}
+					<h5>{{booking.GameMinute}}</h5>
+					<h5>{{booking.Type}}</h5>
+					<h5>{{booking.Name}}</h5>
+				{{/each}}
+			</div>
+	</div>
+{{/each}}

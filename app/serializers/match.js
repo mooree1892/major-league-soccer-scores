@@ -12,5 +12,4 @@ export default DS.RESTSerializer.extend({
 
         return this._super(store, primaryModelClass, result, id, requestType);
     }
-
 });

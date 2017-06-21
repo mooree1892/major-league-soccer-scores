@@ -4,5 +4,6 @@ export default DS.Model.extend({
 	Game: DS.attr(''),
 	AwayTeamCoach: DS.attr('string'),
 	HomeTeamCoach: DS.attr('string'),
-	Goals: DS.attr('')
+	Goals: DS.attr(),
+	Bookings: DS.attr()
 });
