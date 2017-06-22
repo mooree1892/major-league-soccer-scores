@@ -1,7 +1,6 @@
 # major-league-soccer-scores
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+A basic MLS score app that displays the goalscorers and bookings of each match for the current day.
 
 ## Prerequisites
 
