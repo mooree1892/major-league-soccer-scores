@@ -4,14 +4,23 @@
 body {
 
 	h5 {
+    color: purple;
+  	}
+
+  	h4 {
     color: blue;
+  	}
+
+  	hr {
+  		color: blue;
   	}
 
   	span {
   		padding-left: 10px;
   	}
+
   	h6 {
-  	color: green;
+  		color: green;
   	}
 
 	#games {
@@ -23,13 +32,5 @@ body {
 	#games:hover {
 		background-color: gray;  
 	}
-
-/*	#teamnames {
-		float: left;
-	}
-
-	#scores {
-		float: right;
-	}*/
 
 }

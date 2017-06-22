@@ -5,32 +5,40 @@
 
 {{#each model as |match|}}
 	<div id="games" class="panel panel-default">
-		<h6 style="text-align: right">{{match.Game.Clock}}</h6>
-		<h6 style="text-align: right">{{match.Game.DateTime}}</h6>
-	 	<h5 style="text-align: left">{{match.Game.HomeTeamName}}	
+		<h6 style="text-align: right">{{#if match.Game.Clock}} {{match.Game.Clock}}' {{else}} {{match.Game.DateTime}} {{/if}}</h6>
+	 	<h4 style="text-align: left">{{match.Game.HomeTeamName}}	
 	 		<span style="float: right">
 	 			{{match.Game.HomeTeamScore}}
 	 		</span>
-	 	</h5>
-	 	<h5 style="text-align: left">{{match.Game.AwayTeamName}}	
+	 	</h4>
+	 	<h4 style="text-align: left">{{match.Game.AwayTeamName}}	
 	 		<span style="float: right">
 	 			{{match.Game.AwayTeamScore}}
 	 		</span>
-	 	</h5>
+	 	</h4>
 
 		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{match.Game.GameId}}">Match Details</button>
 			<div id="{{match.Game.GameId}}" class="collapse">
-				Goals
+				<hr>
+
+				<h4>Goals</h4>
 				{{#each match.Goals as |goal|}}
-					<h5>{{goal.GameMinute}}</h5>
-					<h5>{{goal.Name}}</h5>
+					<h5 style="text-align: left">{{goal.GameMinute}}'	
+	 					<span style="float: right">
+	 						{{goal.Name}}
+	 					</span>
+	 				</h5>
 				{{/each}}
 				
-				Disciplinary
+				<hr>
+				<h4>Disciplinary</h4>
 				{{#each match.Bookings as |booking|}}
-					<h5>{{booking.GameMinute}}</h5>
-					<h5>{{booking.Type}}</h5>
-					<h5>{{booking.Name}}</h5>
+					<h5 style="text-align: left">{{booking.GameMinute}}'	
+	 					<span style="float: right">
+	 						{{booking.Type}} - 
+	 						{{booking.Name}}
+	 					</span>
+	 				</h5>
 				{{/each}}
 			</div>
 	</div>
