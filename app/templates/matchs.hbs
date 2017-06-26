@@ -6,8 +6,12 @@
 	<div id="games" class="panel panel-default">
 		<h6 style="text-align: right">{{#if (eq match.Game.Status "InProgress")}} 
 			{{match.Game.Clock}}'
-				{{else}} 
-					{{format-date match.Game.DateTime}} ET {{/if}}
+				{{else if (eq match.Game.Status "Break")}}
+					HT
+					{{else if (eq match.Game.Status "Final")}}
+					Final
+						{{else}}
+						{{format-date match.Game.DateTime}} ET {{/if}}
 		</h6>
 
 	 	<h4 style="text-align: left">{{match.Game.HomeTeamName}}	
