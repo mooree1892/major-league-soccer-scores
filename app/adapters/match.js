@@ -8,8 +8,8 @@ export default DS.RESTAdapter.extend({
 	},
 	pathForType() {
 		var date = new Date().toISOString().slice(0,10);
-		// return 'BoxScoresDeltaByCompetition/mls/' + date + '/1';
-		// return 'BoxScoresDeltaByCompetition/15/2017-06-25/1';
-		return 'BoxScoresByCompetition/mls/2017-06-26';
+		return 'BoxScoresDeltaByCompetition/mls/' + date + '/1';
+		// return 'BoxScoresDeltaByCompetition/mls/2017-06-25/1';
+		// return 'BoxScoresDeltaByCompetition/mls/2017-07-01/1';
 	}
 });
