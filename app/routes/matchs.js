@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 	actions: {
     	reload: function() {
-    		Ember.Logger.log('Route is now refreshing...');
+    		Ember.Logger.log('Refreshing route');
       		this.refresh();
     	}
   	},	
