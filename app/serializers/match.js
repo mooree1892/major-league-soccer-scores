@@ -8,6 +8,7 @@ export default DS.RESTSerializer.extend({
             result.push(element);
         });
         result = { matchs : result };
+        console.log(result);
 
         return this._super(store, primaryModelClass, result, id, requestType);
     }

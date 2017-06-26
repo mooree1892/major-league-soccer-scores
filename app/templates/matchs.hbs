@@ -2,22 +2,27 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 {{outlet}}
 
-
 {{#each model as |match|}}
 	<div id="games" class="panel panel-default">
-		<h6 style="text-align: right">{{#if match.Game.Clock}} {{match.Game.Clock}}' {{else}} {{match.Game.DateTime}} {{/if}}</h6>
+		<h6 style="text-align: right">{{#if (eq match.Game.Status "InProgress")}} 
+			{{match.Game.Clock}}'
+				{{else}} 
+					{{format-date match.Game.DateTime}} ET {{/if}}
+		</h6>
+
 	 	<h4 style="text-align: left">{{match.Game.HomeTeamName}}	
 	 		<span style="float: right">
 	 			{{match.Game.HomeTeamScore}}
 	 		</span>
 	 	</h4>
+
 	 	<h4 style="text-align: left">{{match.Game.AwayTeamName}}	
 	 		<span style="float: right">
 	 			{{match.Game.AwayTeamScore}}
 	 		</span>
 	 	</h4>
 
-		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{match.Game.GameId}}">Match Details</button>
+		<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{match.Game.GameId}}" {{action "getLatest"}}>Match Details</button>
 			<div id="{{match.Game.GameId}}" class="collapse">
 				<hr>
 
@@ -25,7 +30,11 @@
 				{{#each match.Goals as |goal|}}
 					<h5 style="text-align: left">{{goal.GameMinute}}'	
 	 					<span style="float: right">
-	 						{{goal.Name}}
+	 						{{#if (eq goal.TeamId match.Game.HomeTeamId)}} 
+	 							{{match.Game.HomeTeamKey}}
+	 								{{else}}
+	 									{{match.Game.AwayTeamKey}} {{/if}}
+	 						- {{goal.Name}}
 	 					</span>
 	 				</h5>
 				{{/each}}
@@ -35,7 +44,11 @@
 				{{#each match.Bookings as |booking|}}
 					<h5 style="text-align: left">{{booking.GameMinute}}'	
 	 					<span style="float: right">
-	 						{{booking.Type}} - 
+	 						{{#if (eq booking.TeamId match.Game.HomeTeamId)}} 
+	 							{{match.Game.HomeTeamKey}}
+	 								{{else}}
+	 									{{match.Game.AwayTeamKey}} {{/if}}
+	 						- {{booking.Type}} - 
 	 						{{booking.Name}}
 	 					</span>
 	 				</h5>
