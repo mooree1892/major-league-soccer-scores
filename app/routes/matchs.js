@@ -10,8 +10,5 @@ export default Ember.Route.extend({
 
 	model() {
 		return this.get('store').findAll('match');
-		// var matches = this.get('store').findAll('match');
-		// matches.reload();
-		// return matches;
 	}
 });

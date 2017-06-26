@@ -3,7 +3,7 @@
 {{outlet}}
 
 {{#each model as |match|}}
-	<div id="games" class="panel panel-default">
+	<div id="games" class="panel panel-default" {{action "getLatest"}}>
 		<h6 style="text-align: right">{{#if (eq match.Game.Status "InProgress")}} 
 			{{match.Game.Clock}}'
 				{{else if (eq match.Game.Status "Break")}}

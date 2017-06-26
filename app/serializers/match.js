@@ -8,8 +8,13 @@ export default DS.RESTSerializer.extend({
             result.push(element);
         });
         result = { matchs : result };
-        console.log(result);
 
-        return this._super(store, primaryModelClass, result, id, requestType);
+        if (result.length == 0) {
+        	var noGame = "No Games Today";
+        	return this._super(store, primaryModelClass, noGame, id, requestType);
+        }
+        else {
+        	return this._super(store, primaryModelClass, result, id, requestType);
+        }
     }
 });
